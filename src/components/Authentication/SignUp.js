@@ -1,18 +1,35 @@
 import Wrapper from "../../styles/Wrapper";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Content,
   Title,
   Form,
   Input,
   Button,
+  Option,
 } from "../../styles/AuthenticationStyle";
-import { useState } from "react";
+import * as Request from "../../services/requests";
 
 function SignUp() {
   const [credentials, setCredentials] = useState({});
 
+  const navigate = useNavigate();
+
   function handleForm(e) {
     e.preventDefault();
+    Request.signUp(credentials)
+      .then(() => {
+        alert("Usuário cadastrado com sucesso!");
+        navigate("/sign-in");
+      })
+      .catch((err) => {
+        if (err.response.status === 409) {
+          alert("Usuário já cadastrado!");
+          return;
+        }
+        alert("Preencha o formulário corretamente!");
+      });
   }
 
   return (
@@ -49,6 +66,9 @@ function SignUp() {
           />
           <Button>Cadastrar</Button>
         </Form>
+        <Option onClick={() => navigate("/sign-in")}>
+          Já tem uma conta? Entre agora!
+        </Option>
       </Content>
     </Wrapper>
   );

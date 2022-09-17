@@ -53,4 +53,13 @@ const Button = styled.button`
   }
 `;
 
-export { Content, Title, Form, Input, Button };
+const Option = styled.p`
+  font-family: "Roboto Mono", monospace;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 15px;
+  cursor: pointer;
+`;
+
+export { Content, Title, Form, Input, Button, Option };
