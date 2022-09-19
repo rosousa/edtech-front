@@ -32,12 +32,12 @@ export default function OneProductPage() {
     };
 
     return (
-        product === "" ?
+        !product.name ?
             <h1>carregando</h1>
             :
             <Wrapper>
                 <Header cart />
-                <img src={`./images/${product.name}.png`} alt="carregando" />
+                <img src={product.image} alt="carregando" />
                 <h1>{product.name}</h1>
                 <span>{product.description}</span>
                 <div>
@@ -58,8 +58,9 @@ const Wrapper = styled.div`
 
     img {
         width: 80%;
-        height: auto;
+        height: 200px;
         margin: 80px 0 30px;
+        object-fit: contain;
     }
 
     h1 {
