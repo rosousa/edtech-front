@@ -7,6 +7,7 @@ import SignUp from "./Authentication/SignUp";
 import Home from "./Products/Home";
 import OneProductPage from "./Products/OneProductPage";
 import CartContext from "../contexts/CartContext";
+import Cart from "../cart/Cart";
 
 function App() {
   const [token, setToken] = useState("");
@@ -22,6 +23,7 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/" element={<Home />} />
             <Route path="/products/:productId" element={<OneProductPage />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </CartContext.Provider>
       </Token.Provider>

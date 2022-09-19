@@ -10,7 +10,7 @@ export default function Header({ cart }) {
         <Wrapper cart={cart}>
             <Title>edTech</Title>
             {cart ?
-                    <GrBasket />
+                    <GrBasket onClick={() => navigate("/cart")} />
                 :
                 ""}
         </Wrapper>
