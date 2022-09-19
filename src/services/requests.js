@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://back-edtech.herokuapp.com";
 
 function signUp(body) {
   const promise = axios.post(`${BASE_URL}/sign-up`, body);
