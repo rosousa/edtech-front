@@ -5,15 +5,18 @@ import ProductsContext from "../../contexts/ProductsContext";
 
 export default function Category({ category }) {
     const { products } = useContext(ProductsContext);
-    const productsInThisCategory = products.filter(product => product.category === category);
+    const productsInThisCategory = products?.filter(product => product.category === category);
 
     return (
-        <Wrapper>
-            <h2>{category}</h2>
-            <Products
-                products={productsInThisCategory}
-            />
-        </Wrapper>
+        products.length === 0 ?
+            <h1>carregando</h1>
+            :
+            <Wrapper>
+                <h2>{category}</h2>
+                <Products
+                    products={productsInThisCategory}
+                />
+            </Wrapper>
     )
 }
 

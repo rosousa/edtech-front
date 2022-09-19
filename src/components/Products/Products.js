@@ -1,19 +1,7 @@
 import styled from "styled-components";
 import Product from "./Product";
-import ProductsContext from "../../contexts/ProductsContext";
-import { useContext } from "react";
-import { useEffect } from "react";
-import { getProducts } from "../../services/requests";
 
 export default function Products({ products }) {
-
-    // useEffect(() => {
-    //     getProducts()
-    //         .then(res => {
-    //             setProducts(res.data);
-    //         })
-    //         .catch(() => window.location.reload());
-    // }, []);
 
     return (
         <Wrapper>
@@ -22,10 +10,10 @@ export default function Products({ products }) {
             :
             products.map(product => (
                 <Product
-                    key={product.id}
+                    key={product._id}
                     name={product.name}
                     description={product.description}
-                    productId={product.id}
+                    productId={product._id}
                     price={product.price}
                 />
             ))

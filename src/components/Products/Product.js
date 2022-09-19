@@ -5,10 +5,18 @@ export default function Product({ name, productId, price, description }) {
     const navigate = useNavigate();
     
     return (
-        <Wrapper onClick={() => navigate(`/products/${productId}`)}>
-            <img src={name} alt="carregando" />
+        <Wrapper onClick={() => navigate(`/products/${productId}`, {
+            state: {
+                product: {
+                    name,
+                    productId,
+                    price,
+                    description
+                }
+            }
+        })}>
+            <img src={`./images/${name}.png`} alt="carregando" />
             <h3>{name}</h3>
-            <p>{description}</p>
             <span>R${(Number(price)/100).toFixed(2).toString().replace(".", ",")}</span>
         </Wrapper>
     )
@@ -39,11 +47,6 @@ const Wrapper = styled.div`
     h3 {
         font-size: 16px;
         font-weight: 700;
-    }
-
-    p {
-        font-size: 12px;
-        color: rgba(166, 166, 166, 1);
     }
 
     span {
