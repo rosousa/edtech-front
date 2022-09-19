@@ -4,7 +4,6 @@ import Header from "../common/Header";
 import { useContext } from "react";
 import CartContext from "../../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { getProduct } from "../../services/requests";
 
