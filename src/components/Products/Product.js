@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-export default function Product({ name, productId, price, description }) {
+export default function Product({ name, productId, price, description, image }) {
     const navigate = useNavigate();
     
     return (
@@ -15,7 +15,7 @@ export default function Product({ name, productId, price, description }) {
                 }
             }
         })}>
-            <img src={`./images/${name}.png`} alt="carregando" />
+            <img src={image} alt="carregando" />
             <h3>{name}</h3>
             <span>R${(Number(price)/100).toFixed(2).toString().replace(".", ",")}</span>
         </Wrapper>
@@ -37,6 +37,7 @@ const Wrapper = styled.div`
     img {
         width: 220px;
         height: 130px;
+        object-fit: contain;
     }
 
     h3, p, span {

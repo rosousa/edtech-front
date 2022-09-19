@@ -15,6 +15,7 @@ export default function Products({ products }) {
                     description={product.description}
                     productId={product._id}
                     price={product.price}
+                    image={product.image}
                 />
             ))
             }
