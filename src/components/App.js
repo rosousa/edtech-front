@@ -4,6 +4,7 @@ import GlobalStyle from "../styles/GlobalStyle";
 import Token from "../contexts/UserToken";
 import SignIn from "./Authentication/SignIn";
 import SignUp from "./Authentication/SignUp";
+import Checkout from "./Checkout/Checkout";
 import Home from "./Products/Home";
 import OneProductPage from "./Products/OneProductPage";
 import CartContext from "../contexts/CartContext";
