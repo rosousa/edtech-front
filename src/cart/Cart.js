@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CartContext from "../contexts/CartContext";
+import UserToken from "../contexts/UserToken.js";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Product from "../components/Products/Product";
@@ -7,8 +8,17 @@ import Header from "../components/common/Header";
 
 export default function Cart() {
     const { cart } = useContext(CartContext);
+    const { token } = useContext(UserToken);
 
     const navigate = useNavigate();
+
+    function handleFinishPurchase() {
+        if(!token) {
+            return navigate("/sign-in");
+        };
+
+        navigate("/checkout");
+    };
 
     return (
         cart.length === 0 ?
@@ -27,7 +37,7 @@ export default function Cart() {
                         cartProduct
                     />
                 ))}
-                <button onClick={() => navigate("/checkout")}>Finalizar compra</button>
+                <button onClick={handleFinishPurchase}>Finalizar compra</button>
             </Wrapper>
     )
 };
